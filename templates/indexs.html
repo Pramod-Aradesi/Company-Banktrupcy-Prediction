@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Company Bankruptcy Prediction</title>
+    <style>
+      html, body {
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: rgb(46, 111, 139);
+        }
+      h1 {
+      margin: 0 0 20px;
+      font-weight: 400;
+      color: rgb(88, 46, 139);
+      }
+      label {
+      margin: 0 0 0px;
+      font-weight: 50;
+      color: rgb(222, 15, 105);
+      font-size: 18px;
+      }
+      p {
+      margin: 0 0 5px;
+      }
+      .main-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 75vh;
+      background-image: url("static/img/background image.jpg");
+    background-size: cover; /* Resize the background image to cover the entire container */
+  
+      }
+      form {
+      padding: 25px;
+      margin: 25px;
+      width: 50%;
+      box-shadow: 0 2px 5px #f5f5f5; 
+      background: #f5f5f5;
+      border: 2px solid rgb(115, 64, 118);
+      border-radius: 8px;
+      }
+      input, textarea {
+      width: calc(50% - 18px);
+      padding: 8px;
+      margin-bottom: 20px;
+      border: 2px solid seagreen;
+      border-radius: 4px;
+      outline: none;
+      }
+      input::placeholder {
+      color: rgb(168, 171, 171);
+      }
+      input {
+        display: block;
+      }
+      button {
+      width: 50%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: seagreen; 
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+      }
+      button:hover {
+      background: green;
+      }   
+      @media screen and (max-width: 600px) {
+      .main-block {
+      flex-direction: row;
+      }
+      }
+      .left-part, form {
+      width: 50%;
+      }
+      .result{
+        position: absolute;
+        visibility: visible;
+        top: 70%;
+        right: 25%;
+        width: 15%;
+        height: 15%;
+        border: 3px solid seagreen;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px #f5f5f5;
+        text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="main-block">
+      <div class="left-part">
+      </div>
+      <center><h1><b>Company Bankruptcy Prediction</b></h1></center>
+        <p>Bankruptcy is a legal proceeding initiated when a person or business is unable to repay outstanding debts or obligations. </p>
+        <p><i>Accurate model Company Bankruptcy Prediction</i></p>
+      <form action="{{url_for('predict')}}" method="post">
+        <section>
+        <p>This Web Application is processed by a Machine Learning Algorithm to predict probability that whether the company will go bankrupt or not in following years. </p>
+        <p><i>Note that this model is 96.48% accurate</i></p>
+        <div class="info">
+        	 <p><b>Please Enter values for the following:</b></p><br>
+           <label><i>Enter Your OPG Score : </i></label><br><br>
+           <input type="number" name="Operating Gross Margin" step="0.00001" placeholder="Opearting Gross Profit" required>
+           <label><i> Enter your CFR Rating : </i></label><br><br>
+           <input type="number"  name="Cash flow rate" step="0.00001" placeholder="Cash Flow Rate" required>
+           <label><i> Enter Your TRA Rating : </i></label><br><br>
+           <input type="number" name="Tax rate (A)" step="0.00001" placeholder="Tax Rate" required>
+           <label><i> Enter Your NWA : </i></label><br><br>
+           <input type="number" name="Net worth/Assets" step="0.00001" placeholder="Net Worth/Assets" required>
+           <label><i>Enter TAT : </i></label><br><br>
+           <input type="number" name="Total Asset Turnover" step="0.00001" placeholder="Total Asset Turnover" required>
+           <label><i>Enter CTA : </i></label><br><br>
+           <input type="number" name="Cash/Total Assets" step="0.00001" placeholder="Cash/Total Assets" required>
+           <label><i>Enter CCL : </i></label><br><br>
+           <input type="number" name="Cash/Current Liability" step="0.00001" placeholder="Cash/Current Liability" required>
+           <label><i>Enter TITE : </i></label><br><br>
+           <input type="number" name="Total income/Total expense" step="0.00001" placeholder="Total Income/Total Expense" required>
+           <label><i>Enter TEA : </i></label><br><br>
+           <input type="number" name="Total expense/Assets" step="0.00001" placeholder="Total Expense/Assets" required>
+           <label><i>Enter GPS : </i></label><br><br>
+           <input type="number" name="Gross Profit to Sales" step="0.00001" placeholder="Gross Profit to Sales" required>
+        </div>
+        <center><button type="submit" value="predict">Predict</button></center>
+        <div class = "result">
+            <h2>Result</h2>
+            <p>{{result}}</p>
+        </div>
+        </section>
+      </form>
+          <footer>
+              <p><i>Developed By Team</i></p>
+    </footer>
+  </body>
+</html>
